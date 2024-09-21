@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title><b>INST377 - Lab 4</b></title>
+        <link rel ="stylesheet" href="Lab4.css">
+    </head>
+
+    <body>
+
+        <h1 id="word">INST377 - Lab 4</h1>
+
+        <!-- Alert Me -->
+        <div class="section1">
+            <form id="alertMe">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <button type="submit" onclick="showAlert()">Alert Me!</button>
+            </form>
+        </div>
+
+        <!-- Change Color -->
+        <div class="section2">
+            <button id="changeColor" onclick="changeColors()">Change Color</button>
+        </div>
+    
+        <!-- Text Tester -->
+        <div class="section1">
+            <form id="textTest">
+                <label for="text">Text Tester:</label>
+                <input type="text" id="text" required>
+                <button type="submit" onclick="validateText()">Validate Text</button>
+            </form>
+        </div>
+
+        <!-- Add Text -->
+        <div class="section2">
+            <button id="addText" onclick="addTexts()">Add Text</button>
+        </div>
+
+        <!-- JavaScript -->
+        <script type="text/javascript">
+            
+        // Alert Me script
+            function showAlert() {
+                var name = document.getElementById('name').value;
+                if (name) {
+                    alert("Hello " + name + "!");
+                }
+            }
+
+        // Change Color script
+        var Blue = true;
+        function changeColors() {
+        if (Blue) {
+            document.body.style.backgroundColor = 'lightgreen';
+        } else {
+            document.body.style.backgroundColor = 'lightblue';
+        }
+        Blue = !Blue;
+        }
+        
+        // Text Validator script
+        function validateText() {
+            var text = document.getElementById('text').value;
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text)) {
+                alert("Special characters are not allowed!");
+                return false;
+            } 
+            return true;
+        }
+
+        // Add Text script
+        function addTexts() {
+      var Title = document.getElementById('word');
+      Title.textContent += " -- Add Text";
+
+    }
+    </script>
+    </body>
+    </html>
